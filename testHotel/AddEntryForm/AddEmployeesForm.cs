@@ -1,5 +1,6 @@
 ﻿using MySqlConnector;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace testHotel.AddEntryForm
@@ -42,5 +43,16 @@ namespace testHotel.AddEntryForm
             }
             Close();
         }
+
+        private void AddEmployeesForm_Load(object sender, EventArgs e)
+        {
+            NameBox.AddPlaceHolderForTextBox("Имя");
+            SurNameBox.AddPlaceHolderForTextBox("Фамилия");
+            PhoneNumBox.AddPlaceHolderForTextBox("Телефонный номер");
+            PositionComboBox.AddPlaceHolderForComboBoc("Должность");
+        }
+
+
     }
+
 }

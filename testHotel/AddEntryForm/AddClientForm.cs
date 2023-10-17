@@ -35,6 +35,9 @@ namespace testHotel.AddEntryForm
             Close();
         }
 
-
+        private void AddClientForm_Load(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

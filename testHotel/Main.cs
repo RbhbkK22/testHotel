@@ -110,5 +110,28 @@ namespace testHotel
             tools.DeleteLast(comboBox1);
         }
 
+        private void dataGridView1_DoubleClick(object sender, EventArgs e)
+        {
+            switch (comboBox1.Text)
+            {
+                case "Клиенты":
+                    ChangeClientForm changeClient = new ChangeClientForm(Convert.ToInt32(IdTextBox.Text), dataGridView1);
+                    changeClient.Show();
+                    break;
+                case "Комнаты":
+                    dataBase.DbLoad(dataGridView1, "rooms");
+                    break;
+                case "Работники":
+                    ChangeEmployForm changeEmploy = new ChangeEmployForm(Convert.ToInt32(IdTextBox.Text), dataGridView1);
+                    changeEmploy.Show();
+                    break;
+                case "Должности":
+                    dataBase.DbLoad(dataGridView1, "positions");
+                    break;
+                case "Категории номеров":
+                    dataBase.DbLoad(dataGridView1, "categories");
+                    break;
+            }
+        }
     }
 }

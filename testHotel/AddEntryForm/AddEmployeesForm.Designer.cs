@@ -90,6 +90,7 @@
             // 
             this.PositionComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.PositionComboBox.Font = new System.Drawing.Font("Yu Gothic UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.PositionComboBox.ForeColor = System.Drawing.SystemColors.WindowText;
             this.PositionComboBox.FormattingEnabled = true;
             this.PositionComboBox.Location = new System.Drawing.Point(70, 275);
             this.PositionComboBox.Margin = new System.Windows.Forms.Padding(4);
@@ -112,6 +113,7 @@
             this.Name = "AddEmployeesForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddEmployeesForm";
+            this.Load += new System.EventHandler(this.AddEmployeesForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
