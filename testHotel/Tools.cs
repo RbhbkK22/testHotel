@@ -1,5 +1,6 @@
 ﻿using MySqlConnector;
 using System;
+using System.CodeDom;
 using System.Windows.Forms;
 
 
@@ -41,7 +42,7 @@ namespace testHotel
             return null;
         }
 
-        public void FillingComboBox(ComboBox comboBox, string tabName)
+        public void FillingComboBox(ComboBox comboBox, string tabName, int colum)
         {
             main.dataBase.cn.Close();
             main.dataBase.cn.Open();
@@ -51,7 +52,7 @@ namespace testHotel
             {
                 while (reader.Read())
                 {
-                    string s = reader.GetString(1);
+                    string s = Convert.ToString(reader.GetValue(colum)); ;
                     comboBox.Items.Add(s);
                 }
             }
@@ -94,7 +95,6 @@ namespace testHotel
             {
                 MessageBox.Show(ex.Message);
             }
-
         }
     }
 }

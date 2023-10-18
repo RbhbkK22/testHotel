@@ -8,11 +8,13 @@ namespace testHotel.AddEntryForm
     {
         Main main = new Main();
         DataGridView dataGridView;
+        Tools tools = new Tools();
 
         public AddClientForm(DataGridView n)
         {
             dataGridView = n;
             InitializeComponent();
+            tools.FillingComboBox(RoomNumComboBox, "rooms", 1);
         }
         
         private void btnAdd_Click(object sender, EventArgs e)
@@ -21,7 +23,9 @@ namespace testHotel.AddEntryForm
             { 
                 main.dataBase.cn.Close();
                 main.dataBase.cn.Open();
-                main.command = new MySqlCommand("INSERT INTO clients(RoomNum, Name, SurName, PhoneNum, CheckIn, CheckOut) VALUES('"+RoomNumText.Text+"','"+NameText.Text+ "','"+SurNameText.Text+"'," +
+                main.command = new MySqlCommand("INSERT INTO clients(RoomNum, RoomId, Name, SurName, PhoneNum, CheckIn, CheckOut)" +
+                    " VALUES('"+RoomNumComboBox.Text+"',(SELECT id FROM rooms WHERE RoomNum = "+RoomNumComboBox.Text+")," +
+                    "'"+NameText.Text+ "','"+SurNameText.Text+"'," +
                     "'"+PhoneText.Text+"','"+CheckInText.Text+"','"+CheckOutText.Text+"')", main.dataBase.cn);
                 main.command.ExecuteNonQuery();
                 main.dataBase.cn.Close();
@@ -37,7 +41,12 @@ namespace testHotel.AddEntryForm
 
         private void AddClientForm_Load(object sender, EventArgs e)
         {
-            
+            RoomNumComboBox.AddPlaceHolderForComboBoc("Номер комнаты");
+            NameText.AddPlaceHolderForTextBox("Имя");
+            SurNameText.AddPlaceHolderForTextBox("Фамилия");
+            PhoneText.AddPlaceHolderForTextBox("Телефонный номер");
+            CheckInText.AddPlaceHolderForTextBox("Заселение");
+            CheckOutText.AddPlaceHolderForTextBox("Выезд");
         }
     }
 }

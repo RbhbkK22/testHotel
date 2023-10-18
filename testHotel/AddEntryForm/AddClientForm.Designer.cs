@@ -35,7 +35,7 @@
             this.PhoneText = new System.Windows.Forms.TextBox();
             this.CheckInText = new System.Windows.Forms.TextBox();
             this.CheckOutText = new System.Windows.Forms.TextBox();
-            this.RoomNumText = new System.Windows.Forms.TextBox();
+            this.RoomNumComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // NameText
@@ -106,20 +106,22 @@
             this.CheckOutText.Size = new System.Drawing.Size(265, 30);
             this.CheckOutText.TabIndex = 7;
             // 
-            // RoomNumText
+            // RoomNumComboBox
             // 
-            this.RoomNumText.Font = new System.Drawing.Font("Yu Gothic UI", 10.2F);
-            this.RoomNumText.Location = new System.Drawing.Point(70, 125);
-            this.RoomNumText.Margin = new System.Windows.Forms.Padding(4);
-            this.RoomNumText.Name = "RoomNumText";
-            this.RoomNumText.Size = new System.Drawing.Size(265, 30);
-            this.RoomNumText.TabIndex = 0;
+            this.RoomNumComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.RoomNumComboBox.Font = new System.Drawing.Font("Yu Gothic UI", 10.2F);
+            this.RoomNumComboBox.FormattingEnabled = true;
+            this.RoomNumComboBox.Location = new System.Drawing.Point(70, 125);
+            this.RoomNumComboBox.Name = "RoomNumComboBox";
+            this.RoomNumComboBox.Size = new System.Drawing.Size(265, 31);
+            this.RoomNumComboBox.TabIndex = 8;
             // 
             // AddClientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(382, 503);
+            this.Controls.Add(this.RoomNumComboBox);
             this.Controls.Add(this.CheckOutText);
             this.Controls.Add(this.CheckInText);
             this.Controls.Add(this.PhoneText);
@@ -127,7 +129,6 @@
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.SurNameText);
             this.Controls.Add(this.NameText);
-            this.Controls.Add(this.RoomNumText);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AddClientForm";
@@ -147,6 +148,6 @@
         private System.Windows.Forms.TextBox PhoneText;
         private System.Windows.Forms.TextBox CheckInText;
         private System.Windows.Forms.TextBox CheckOutText;
-        private System.Windows.Forms.TextBox RoomNumText;
+        private System.Windows.Forms.ComboBox RoomNumComboBox;
     }
 }

@@ -19,7 +19,7 @@ namespace testHotel.ChangeForm
         {
             dataGridView = d;
             InitializeComponent();
-            tools.FillingComboBox(PositionComboBox, "positions");
+            tools.FillingComboBox(PositionComboBox, "positions", 1);
             PrintTextBox();
             this.id = id;
         }

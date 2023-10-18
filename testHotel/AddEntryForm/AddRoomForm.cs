@@ -10,11 +10,19 @@ using System.Windows.Forms;
 
 namespace testHotel.AddEntryForm
 {
-    public partial class AddRoom : Form
+    public partial class AddRoomForm : Form
     {
-        public AddRoom()
+        DataGridView dataGridView;
+        Tools tool = new Tools();
+        public AddRoomForm(DataGridView d)
         {
             InitializeComponent();
+            dataGridView = d;
+            tool.FillingComboBox(EmpComboBox, "employees", 0);
         }
+
+
+
+
     }
 }

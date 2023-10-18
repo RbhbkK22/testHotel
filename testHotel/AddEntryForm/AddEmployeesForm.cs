@@ -11,16 +11,11 @@ namespace testHotel.AddEntryForm
         DataGridView dataGridView = new DataGridView();
         Tools tools = new Tools();
 
-        public AddEmployeesForm()
-        {
-            InitializeComponent();
-        }
-
         public AddEmployeesForm(DataGridView d)
         {
             dataGridView = d;
             InitializeComponent();
-            tools.FillingComboBox(PositionComboBox, "positions");
+            tools.FillingComboBox(PositionComboBox, "positions", 1);
 
         }
 
@@ -51,8 +46,5 @@ namespace testHotel.AddEntryForm
             PhoneNumBox.AddPlaceHolderForTextBox("Телефонный номер");
             PositionComboBox.AddPlaceHolderForComboBoc("Должность");
         }
-
-
     }
-
 }

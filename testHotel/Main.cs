@@ -21,6 +21,7 @@ namespace testHotel
             InitializeComponent();
             dataBase.Connect(dataGridView1);
             comboBox1.SelectedIndex = 0;
+            IdTextBox.Visible = false;
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -60,7 +61,8 @@ namespace testHotel
                     addClientForm.Show();
                     break;
                 case "Комнаты":
-                    dataBase.DbLoad(dataGridView1, "rooms");
+                    AddRoomForm addRoomForm = new AddRoomForm(dataGridView1);
+                    addRoomForm.Show();
                     break;
                 case "Работники":
                     AddEmployeesForm addEmployeesForm = new AddEmployeesForm(dataGridView1);
@@ -132,6 +134,11 @@ namespace testHotel
                     dataBase.DbLoad(dataGridView1, "categories");
                     break;
             }
+        }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+            IdTextBox.AddPlaceHolderForTextBox("Выбранный элимент по id");
         }
     }
 }
