@@ -33,9 +33,9 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnAddEntry = new System.Windows.Forms.Button();
             this.reLoad = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.IdTextBox = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,6 +67,7 @@
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(1312, 492);
             this.dataGridView1.TabIndex = 3;
+            this.dataGridView1.TabStop = false;
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
             this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
             // 
@@ -88,31 +89,20 @@
             this.reLoad.Margin = new System.Windows.Forms.Padding(4);
             this.reLoad.Name = "reLoad";
             this.reLoad.Size = new System.Drawing.Size(100, 28);
-            this.reLoad.TabIndex = 5;
+            this.reLoad.TabIndex = 7;
+            this.reLoad.TabStop = false;
             this.reLoad.Text = "reLoad";
             this.reLoad.UseVisualStyleBackColor = true;
             this.reLoad.Click += new System.EventHandler(this.btnReLoad_Click);
             // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.btnUpdate.Location = new System.Drawing.Point(13, 675);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(160, 43);
-            this.btnUpdate.TabIndex = 7;
-            this.btnUpdate.Text = "Изменить";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-            // 
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.btnDelete.Location = new System.Drawing.Point(181, 675);
+            this.btnDelete.Location = new System.Drawing.Point(352, 565);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(160, 43);
-            this.btnDelete.TabIndex = 8;
+            this.btnDelete.TabIndex = 6;
             this.btnDelete.Text = "Удалить";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -124,14 +114,26 @@
             this.IdTextBox.Name = "IdTextBox";
             this.IdTextBox.Size = new System.Drawing.Size(325, 22);
             this.IdTextBox.TabIndex = 6;
+            this.IdTextBox.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.button1.Location = new System.Drawing.Point(185, 565);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(160, 43);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "Посчитать";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1344, 763);
+            this.ClientSize = new System.Drawing.Size(1344, 663);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.IdTextBox);
             this.Controls.Add(this.reLoad);
             this.Controls.Add(this.btnAddEntry);
@@ -154,10 +156,10 @@
         private System.Windows.Forms.Button btnAddEntry;
         public System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button reLoad;
-        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnDelete;
         public System.Windows.Forms.ComboBox comboBox1;
         public System.Windows.Forms.TextBox IdTextBox;
+        private System.Windows.Forms.Button button1;
     }
 }
 

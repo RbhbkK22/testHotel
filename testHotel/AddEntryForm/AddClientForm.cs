@@ -23,10 +23,10 @@ namespace testHotel.AddEntryForm
             { 
                 main.dataBase.cn.Close();
                 main.dataBase.cn.Open();
-                main.command = new MySqlCommand("INSERT INTO clients(RoomNum, RoomId, Name, SurName, PhoneNum, CheckIn, CheckOut)" +
-                    " VALUES('"+RoomNumComboBox.Text+"',(SELECT id FROM rooms WHERE RoomNum = "+RoomNumComboBox.Text+")," +
+                main.command = new MySqlCommand("INSERT INTO clients(id, RoomNum, RoomId, Name, SurName, PhoneNum, CheckIn, CheckOut, Total)" +
+                    " VALUES(NULL, '"+RoomNumComboBox.Text+"', (SELECT id FROM rooms WHERE NumRoom = "+RoomNumComboBox.Text+")," +
                     "'"+NameText.Text+ "','"+SurNameText.Text+"'," +
-                    "'"+PhoneText.Text+"','"+CheckInText.Text+"','"+CheckOutText.Text+"')", main.dataBase.cn);
+                    "'"+PhoneText.Text+"','"+CheckInText.Text+"','"+CheckOutText.Text+"', 'NULL')", main.dataBase.cn);
                 main.command.ExecuteNonQuery();
                 main.dataBase.cn.Close();
                 MessageBox.Show("Данные успешно добавлены. Обновите таблицу");
@@ -47,6 +47,7 @@ namespace testHotel.AddEntryForm
             PhoneText.AddPlaceHolderForTextBox("Телефонный номер");
             CheckInText.AddPlaceHolderForTextBox("Заселение");
             CheckOutText.AddPlaceHolderForTextBox("Выезд");
+           
         }
     }
 }

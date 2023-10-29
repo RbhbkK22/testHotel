@@ -1,6 +1,6 @@
 ﻿namespace testHotel.AddEntryForm
 {
-    partial class AddRoomForm
+    partial class ChangeRoomForm
     {
         /// <summary>
         /// Required designer variable.
@@ -90,11 +90,11 @@
             this.label1.Location = new System.Drawing.Point(50, 22);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(300, 49);
+            this.label1.Size = new System.Drawing.Size(288, 49);
             this.label1.TabIndex = 8;
-            this.label1.Text = "Добавление комнат";
+            this.label1.Text = "Изменение комнат";
             // 
-            // AddRoomForm
+            // ChangeRoomForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -105,10 +105,9 @@
             this.Controls.Add(this.EmpComboBox);
             this.Controls.Add(this.PriceDayBox);
             this.Controls.Add(this.RoomNumBox);
-            this.Name = "AddRoomForm";
+            this.Name = "ChangeRoomForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AddRoom";
-            this.Load += new System.EventHandler(this.AddRoomForm_Load);
+            this.Text = "ChangeRoom";
             this.ResumeLayout(false);
             this.PerformLayout();
 

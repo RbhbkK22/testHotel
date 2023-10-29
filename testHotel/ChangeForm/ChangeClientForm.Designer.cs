@@ -34,7 +34,7 @@
             this.btnChange = new System.Windows.Forms.Button();
             this.SurNameText = new System.Windows.Forms.TextBox();
             this.NameText = new System.Windows.Forms.TextBox();
-            this.RoomNumTextBox = new System.Windows.Forms.TextBox();
+            this.RoomNumComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // CheckOutText
@@ -94,27 +94,28 @@
             this.NameText.Size = new System.Drawing.Size(265, 30);
             this.NameText.TabIndex = 9;
             // 
-            // RoomNumTextBox
+            // RoomNumComboBox
             // 
-            this.RoomNumTextBox.Font = new System.Drawing.Font("Yu Gothic UI", 10.2F);
-            this.RoomNumTextBox.Location = new System.Drawing.Point(70, 125);
-            this.RoomNumTextBox.Margin = new System.Windows.Forms.Padding(4);
-            this.RoomNumTextBox.Name = "RoomNumTextBox";
-            this.RoomNumTextBox.Size = new System.Drawing.Size(265, 30);
-            this.RoomNumTextBox.TabIndex = 8;
+            this.RoomNumComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.RoomNumComboBox.Font = new System.Drawing.Font("Yu Gothic UI", 10.2F);
+            this.RoomNumComboBox.FormattingEnabled = true;
+            this.RoomNumComboBox.Location = new System.Drawing.Point(70, 125);
+            this.RoomNumComboBox.Name = "RoomNumComboBox";
+            this.RoomNumComboBox.Size = new System.Drawing.Size(265, 31);
+            this.RoomNumComboBox.TabIndex = 15;
             // 
             // ChangeClientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(382, 503);
+            this.Controls.Add(this.RoomNumComboBox);
             this.Controls.Add(this.CheckOutText);
             this.Controls.Add(this.CheckInText);
             this.Controls.Add(this.PhoneText);
             this.Controls.Add(this.btnChange);
             this.Controls.Add(this.SurNameText);
             this.Controls.Add(this.NameText);
-            this.Controls.Add(this.RoomNumTextBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ChangeClientForm";
@@ -133,6 +134,6 @@
         private System.Windows.Forms.Button btnChange;
         private System.Windows.Forms.TextBox SurNameText;
         private System.Windows.Forms.TextBox NameText;
-        private System.Windows.Forms.TextBox RoomNumTextBox;
+        private System.Windows.Forms.ComboBox RoomNumComboBox;
     }
 }

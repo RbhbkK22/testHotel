@@ -10,10 +10,6 @@ namespace testHotel.ChangeForm
         DataGridView dataGridView;
         Tools tools = new Tools();
         int id;
-        public ChangeEmployForm()
-        {
-            InitializeComponent();
-        }
 
         public ChangeEmployForm(int id, DataGridView d)
         {

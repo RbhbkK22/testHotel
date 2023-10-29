@@ -9,6 +9,7 @@ namespace testHotel.ChangeForm
     {
         Main main = new Main();
         DataGridView dataGridView;
+        Tools tools = new Tools();
         private int id;
 
         public ChangeClientForm()
@@ -21,18 +22,19 @@ namespace testHotel.ChangeForm
             id = _id;
             dataGridView = d;
             InitializeComponent();
+            tools.FillingComboBox(RoomNumComboBox, "rooms", 1);
             PrintTextBox();
             
         }
 
         private void PrintTextBox()
         {
-            RoomNumTextBox.Text = dataGridView.CurrentRow.Cells[1].Value.ToString();
-            NameText.Text = dataGridView.CurrentRow.Cells[2].Value.ToString();
-            SurNameText.Text = dataGridView.CurrentRow.Cells[3].Value.ToString();
-            PhoneText.Text = dataGridView.CurrentRow.Cells[4].Value.ToString();
-            CheckInText.Text = dataGridView.CurrentRow.Cells[5].Value.ToString();
-            CheckOutText.Text = dataGridView.CurrentRow.Cells[6].Value.ToString();
+            RoomNumComboBox.Text = dataGridView.CurrentRow.Cells[1].Value.ToString();
+            NameText.Text = dataGridView.CurrentRow.Cells[3].Value.ToString();
+            SurNameText.Text = dataGridView.CurrentRow.Cells[4].Value.ToString();
+            PhoneText.Text = dataGridView.CurrentRow.Cells[5].Value.ToString();
+            CheckInText.Text = dataGridView.CurrentRow.Cells[6].Value.ToString();
+            CheckOutText.Text = dataGridView.CurrentRow.Cells[7].Value.ToString();
         }
 
         private void btnChange_Click(object sender, EventArgs e)
@@ -41,7 +43,7 @@ namespace testHotel.ChangeForm
             {
                 main.dataBase.cn.Close();
                 main.dataBase.cn.Open();
-                main.command = new MySqlCommand("UPDATE clients SET RoomNum = '"+RoomNumTextBox.Text+"', Name = '"+NameText.Text+"'," +
+                main.command = new MySqlCommand("UPDATE clients SET RoomNum = '"+RoomNumComboBox.Text+"', Name = '"+NameText.Text+"'," +
                     " SurName = '"+SurNameText.Text+"', PhoneNum = '"+PhoneText.Text+"', CheckIn = '"+CheckInText.Text+"'," +
                     " CheckOut = '"+CheckOutText.Text+"' WHERE id = "+id+"", main.dataBase.cn);
                 main.command.ExecuteNonQuery();

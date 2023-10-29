@@ -8,7 +8,7 @@ namespace testHotel.AddEntryForm
     public partial class AddEmployeesForm : Form
     {
         Main main = new Main();
-        DataGridView dataGridView = new DataGridView();
+        DataGridView dataGridView;
         Tools tools = new Tools();
 
         public AddEmployeesForm(DataGridView d)

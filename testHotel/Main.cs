@@ -1,5 +1,6 @@
 ﻿using MySqlConnector;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 using testHotel.AddEntryForm;
@@ -13,6 +14,7 @@ namespace testHotel
         public MySqlCommand command;
         public MySqlDataAdapter dataApter;
         public DataTable dataTable;
+
         public int index;
         public string tmp = "";
         
@@ -31,11 +33,15 @@ namespace testHotel
                 case 0:
                     dataBase.DbLoad(dataGridView1, "clients");
                     break;
-                case 1:
-                    dataBase.DbLoad(dataGridView1, "rooms");
+                case 1:/*
+                    dataBase.DbLoad(dataGridView1, "rooms");*/
+                    StateRoomManeger stateRoomManeger = new StateRoomManeger(dataGridView1);
+                    stateRoomManeger.ChangeStateRoom();
                     break;
-                case 2:
-                    dataBase.DbLoad(dataGridView1, "categories");
+                case 2:/*
+                    dataBase.DbLoad(dataGridView1, "categories");*/
+                    Tools tool = new Tools(dataGridView1);
+                    tool.CountRoomOfCategories();
                     break;
                 case 3:
                     dataBase.DbLoad(dataGridView1, "employees");
@@ -85,31 +91,15 @@ namespace testHotel
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            switch (comboBox1.Text)
-            {
-                case "Клиенты":
-                    ChangeClientForm changeClient = new ChangeClientForm(Convert.ToInt32(IdTextBox.Text), dataGridView1);
-                    changeClient.Show();
-                    break;
-                case "Комнаты":
-                    dataBase.DbLoad(dataGridView1, "rooms");
-                    break;
-                case "Работники":
-                    ChangeEmployForm changeEmploy = new ChangeEmployForm(Convert.ToInt32(IdTextBox.Text) ,dataGridView1);
-                    changeEmploy.Show();
-                    break;
-                case "Должности":
-                    dataBase.DbLoad(dataGridView1, "positions");
-                    break;
-                case "Категории номеров":
-                    dataBase.DbLoad(dataGridView1, "categories");
-                    break;
-            }
+            
+
+            
         }
         private void btnReLoad_Click(object sender, EventArgs e)
-        {
-            Tools tools = new Tools(dataGridView1);
-            tools.DeleteLast(comboBox1);
+        {/*
+            StateRoomManeger srm = new StateRoomManeger();
+            srm.ChangeStateRoom();
+            dataBase.DbLoad(dataGridView1, "rooms");*/
         }
 
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
@@ -121,7 +111,8 @@ namespace testHotel
                     changeClient.Show();
                     break;
                 case "Комнаты":
-                    dataBase.DbLoad(dataGridView1, "rooms");
+                    ChangeRoomForm changeRoomForm = new ChangeRoomForm(Convert.ToInt32(IdTextBox.Text), dataGridView1);
+                    changeRoomForm.Show();
                     break;
                 case "Работники":
                     ChangeEmployForm changeEmploy = new ChangeEmployForm(Convert.ToInt32(IdTextBox.Text), dataGridView1);
@@ -139,6 +130,13 @@ namespace testHotel
         private void Main_Load(object sender, EventArgs e)
         {
             IdTextBox.AddPlaceHolderForTextBox("Выбранный элимент по id");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Total ta = new Total(dataGridView1);
+            ta.CountTotal();
+
         }
     }
 }

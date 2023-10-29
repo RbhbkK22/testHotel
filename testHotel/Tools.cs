@@ -1,6 +1,7 @@
 ﻿using MySqlConnector;
 using System;
 using System.CodeDom;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 
@@ -96,5 +97,52 @@ namespace testHotel
                 MessageBox.Show(ex.Message);
             }
         }
+
+        public string GetStringDate()
+        {
+            string[] subsDt = DateTime.Now.ToShortDateString().Split('/');
+            string res = subsDt[2] + "-" + subsDt[0] + "-" + subsDt[1];
+            return res;
+        }
+
+        public void CountRoomOfCategories()
+        {
+            main.dataBase.cn.Close();
+            main.dataBase.cn.Open();
+            main.command = new MySqlCommand($"SELECT CategName FROM categories", main.dataBase.cn);
+            List<string> list = new List<string>();
+            MySqlDataReader reader = main.command.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    string s = reader.GetString(0);
+                    list.Add(s);
+                }
+            }
+            foreach (var i in list)
+            {
+                int n = 0;
+                main.dataBase.cn.Close();
+                main.dataBase.cn.Open();
+                main.command = new MySqlCommand($"SELECT * FROM rooms WHERE Category = '{i}'", main.dataBase.cn);
+                reader = main.command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        n += 1;
+                    }
+                }
+                main.dataBase.cn.Close();
+                main.dataBase.cn.Open();
+                main.command = new MySqlCommand($"UPDATE categories SET NumOfRoom = {n} WHERE CategName = '{i}'", main.dataBase.cn);
+                main.command.ExecuteNonQuery();
+                main.dataBase.cn.Close();
+
+                main.dataBase.DbLoad(dataGridView, "categories");
+            }
+        }
+
     }
 }
