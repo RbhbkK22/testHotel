@@ -127,11 +127,6 @@ namespace testHotel
             }
         }
 
-        private void Main_Load(object sender, EventArgs e)
-        {
-            IdTextBox.AddPlaceHolderForTextBox("Выбранный элимент по id");
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             Total ta = new Total(dataGridView1);
