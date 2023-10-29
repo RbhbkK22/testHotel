@@ -131,7 +131,6 @@ namespace testHotel
         {
             Total ta = new Total(dataGridView1);
             ta.CountTotal();
-
         }
     }
 }
