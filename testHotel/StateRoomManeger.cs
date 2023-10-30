@@ -16,7 +16,6 @@ namespace testHotel
            this.dataGridView = dataGridView;
         }
         
-
         private string GetDate()
         {
             string[] subsDt = DateTime.Now.ToShortDateString().Split('/');
@@ -69,7 +68,7 @@ namespace testHotel
                         main.command = new MySqlCommand($"UPDATE rooms SET state = 'свободно' WHERE id = {id}", main.dataBase.cn);
                         continue;
                     }
-                    main.command = new MySqlCommand($"UPDATE rooms SET state = 'свободно' WHERE id = {id}", main.dataBase.cn);
+                    
                 }
                 main.dataBase.cn.Close();
                 main.dataBase.cn.Open();

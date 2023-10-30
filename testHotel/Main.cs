@@ -78,7 +78,8 @@ namespace testHotel
                     dataBase.DbLoad(dataGridView1, "positions");
                     break;
                 case "Категории номеров":
-                    dataBase.DbLoad(dataGridView1, "categories");
+                    AddCategoriesForm addCategoriesForm = new AddCategoriesForm(dataGridView1);
+                    addCategoriesForm.Show();
                     break;
             }
         }
