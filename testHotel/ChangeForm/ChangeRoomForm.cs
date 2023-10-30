@@ -35,9 +35,9 @@ namespace testHotel.AddEntryForm
             {
                 main.dataBase.cn.Close();
                 main.dataBase.cn.Open();
-                main.command = new MySqlCommand("UPDATE rooms SET NumRoom = "+RoomNumBox.Text+", EmployeeID = "+EmpComboBox.Text+", " +
-                    "Category = '"+CategComboBox.Text+ "', categId = (SELECT id FROM categories WHERE CategName = '" + CategComboBox.Text + "'), " +
-                    "PriceOfDay = "+PriceDayBox.Text+" WHERE id = "+id+"", main.dataBase.cn);
+                main.command = new MySqlCommand("UPDATE rooms SET NumRoom = " + RoomNumBox.Text + ", EmployeeID = " + EmpComboBox.Text + ", " +
+                    "Category = '" + CategComboBox.Text + "', categId = (SELECT id FROM categories WHERE CategName = '" + CategComboBox.Text + "'), " +
+                    "PriceOfDay = " + PriceDayBox.Text + " WHERE id = " + id + "", main.dataBase.cn);
                 main.command.ExecuteNonQuery();
                 main.dataBase.cn.Close();
                 MessageBox.Show("Данные успешно добавлены. Обновите таблицу");

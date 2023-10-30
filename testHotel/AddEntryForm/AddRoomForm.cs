@@ -22,8 +22,8 @@ namespace testHotel.AddEntryForm
                 main.dataBase.cn.Close();
                 main.dataBase.cn.Open();
                 main.command = new MySqlCommand("INSERT INTO rooms (NumRoom, EmployeeID, State, Category, categId, PriceOfDay) VALUES " +
-                    "(" +RoomNumBox.Text+ "," +EmpComboBox.Text+ ", 'свободно', '" +CategComboBox.Text+ "'," +
-                    "(SELECT id FROM categories WHERE CategName = '" + CategComboBox.Text + "'),"+PriceDayBox.Text+")", main.dataBase.cn);
+                    "(" + RoomNumBox.Text + "," + EmpComboBox.Text + ", 'свободно', '" + CategComboBox.Text + "'," +
+                    "(SELECT id FROM categories WHERE CategName = '" + CategComboBox.Text + "')," + PriceDayBox.Text + ")", main.dataBase.cn);
                 main.command.ExecuteNonQuery();
                 main.dataBase.cn.Close();
                 MessageBox.Show("Данные успешно добавлены. Обновите таблицу");

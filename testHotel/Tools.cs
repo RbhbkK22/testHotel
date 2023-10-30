@@ -1,6 +1,5 @@
 ﻿using MySqlConnector;
 using System;
-using System.CodeDom;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -47,7 +46,7 @@ namespace testHotel
         {
             main.dataBase.cn.Close();
             main.dataBase.cn.Open();
-            main.command = new MySqlConnector.MySqlCommand("SELECT * FROM "+tabName+"", main.dataBase.cn);
+            main.command = new MySqlConnector.MySqlCommand("SELECT * FROM " + tabName + "", main.dataBase.cn);
             MySqlDataReader reader = main.command.ExecuteReader();
             if (reader.HasRows)
             {

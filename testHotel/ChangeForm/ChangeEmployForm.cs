@@ -35,7 +35,7 @@ namespace testHotel.ChangeForm
                 main.dataBase.cn.Close();
                 main.dataBase.cn.Open();
                 main.command = new MySqlCommand("UPDATE employees SET Name = '" + NameBox.Text + "', SurName = '" + SurNameBox.Text + "'," +
-                    " PhoneNum = '" + PhoneNumBox.Text + "', Position = '" + PositionComboBox.Text + "' WHERE id = "+id+"", main.dataBase.cn);
+                    " PhoneNum = '" + PhoneNumBox.Text + "', Position = '" + PositionComboBox.Text + "' WHERE id = " + id + "", main.dataBase.cn);
                 main.command.ExecuteNonQuery();
                 main.dataBase.cn.Close();
                 main.dataBase.DbLoad(dataGridView, "employees");

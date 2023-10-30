@@ -24,7 +24,7 @@ namespace testHotel.ChangeForm
             InitializeComponent();
             tools.FillingComboBox(RoomNumComboBox, "rooms", 1);
             PrintTextBox();
-            
+
         }
 
         private void PrintTextBox()
@@ -43,9 +43,9 @@ namespace testHotel.ChangeForm
             {
                 main.dataBase.cn.Close();
                 main.dataBase.cn.Open();
-                main.command = new MySqlCommand("UPDATE clients SET RoomNum = '"+RoomNumComboBox.Text+"', Name = '"+NameText.Text+"'," +
-                    " SurName = '"+SurNameText.Text+"', PhoneNum = '"+PhoneText.Text+"', CheckIn = '"+CheckInText.Text+"'," +
-                    " CheckOut = '"+CheckOutText.Text+"' WHERE id = "+id+"", main.dataBase.cn);
+                main.command = new MySqlCommand("UPDATE clients SET RoomNum = '" + RoomNumComboBox.Text + "', Name = '" + NameText.Text + "'," +
+                    " SurName = '" + SurNameText.Text + "', PhoneNum = '" + PhoneText.Text + "', CheckIn = '" + CheckInText.Text + "'," +
+                    " CheckOut = '" + CheckOutText.Text + "' WHERE id = " + id + "", main.dataBase.cn);
                 main.command.ExecuteNonQuery();
                 main.dataBase.cn.Close();
                 main.dataBase.DbLoad(dataGridView, "clients");

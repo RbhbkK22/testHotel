@@ -87,6 +87,12 @@
     <Compile Include="AddEntryForm\AddEmployeesForm.Designer.cs">
       <DependentUpon>AddEmployeesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddEntryForm\AddPositionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEntryForm\AddPositionForm.Designer.cs">
+      <DependentUpon>AddPositionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddEntryForm\AddRoomForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +143,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddEntryForm\AddEmployeesForm.resx">
       <DependentUpon>AddEmployeesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddEntryForm\AddPositionForm.resx">
+      <DependentUpon>AddPositionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddEntryForm\AddRoomForm.resx">
       <DependentUpon>AddRoomForm.cs</DependentUpon>

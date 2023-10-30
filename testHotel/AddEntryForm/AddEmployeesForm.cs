@@ -1,6 +1,5 @@
 ﻿using MySqlConnector;
 using System;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace testHotel.AddEntryForm
@@ -26,7 +25,7 @@ namespace testHotel.AddEntryForm
                 main.dataBase.cn.Close();
                 main.dataBase.cn.Open();
                 main.command = new MySqlCommand("INSERT INTO employees (Name, SurName, PhoneNum, Position, positId) VALUES ('" + NameBox.Text + "','" + SurNameBox.Text + "','" + PhoneNumBox.Text + "'," +
-                    "'" + PositionComboBox.Text + "', (SELECT id FROM positions WHERE PositName = '"+PositionComboBox.Text+"'))", main.dataBase.cn);
+                    "'" + PositionComboBox.Text + "', (SELECT id FROM positions WHERE PositName = '" + PositionComboBox.Text + "'))", main.dataBase.cn);
                 main.command.ExecuteNonQuery();
                 main.dataBase.cn.Close();
                 MessageBox.Show("Данные успешно добавлены. Обновите таблицу");

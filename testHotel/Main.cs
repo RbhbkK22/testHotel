@@ -1,6 +1,5 @@
 ﻿using MySqlConnector;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 using testHotel.AddEntryForm;
@@ -33,13 +32,11 @@ namespace testHotel
                 case 0:
                     dataBase.DbLoad(dataGridView1, "clients");
                     break;
-                case 1:/*
-                    dataBase.DbLoad(dataGridView1, "rooms");*/
+                case 1:
                     StateRoomManeger stateRoomManeger = new StateRoomManeger(dataGridView1);
                     stateRoomManeger.ChangeStateRoom();
                     break;
-                case 2:/*
-                    dataBase.DbLoad(dataGridView1, "categories");*/
+                case 2:
                     Tools tool = new Tools(dataGridView1);
                     tool.CountRoomOfCategories();
                     break;
@@ -75,7 +72,8 @@ namespace testHotel
                     addEmployeesForm.Show();
                     break;
                 case "Должности":
-                    dataBase.DbLoad(dataGridView1, "positions");
+                    AddPositionForm addPositionForm = new AddPositionForm(dataGridView1);
+                    addPositionForm.Show();
                     break;
                 case "Категории номеров":
                     AddCategoriesForm addCategoriesForm = new AddCategoriesForm(dataGridView1);
@@ -92,15 +90,9 @@ namespace testHotel
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            
-
-            
         }
         private void btnReLoad_Click(object sender, EventArgs e)
-        {/*
-            StateRoomManeger srm = new StateRoomManeger();
-            srm.ChangeStateRoom();
-            dataBase.DbLoad(dataGridView1, "rooms");*/
+        {
         }
 
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
@@ -130,8 +122,8 @@ namespace testHotel
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Total ta = new Total(dataGridView1);
-            ta.CountTotal();
+            Total total = new Total(dataGridView1);
+            total.CountTotal();
         }
     }
 }

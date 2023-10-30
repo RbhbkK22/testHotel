@@ -4,14 +4,16 @@ using System.Windows.Forms;
 
 namespace testHotel.AddEntryForm
 {
-    public partial class AddCategoriesForm : Form
+    public partial class AddPositionForm : Form
     {
         Main main = new Main();
         DataGridView dataGridView;
-        public AddCategoriesForm(DataGridView dataGridView)
+
+        public AddPositionForm(DataGridView dataGridView)
         {
             InitializeComponent();
-            NameBox.AddPlaceHolderForTextBox("Название");
+            NameText.AddPlaceHolderForTextBox("Наазвание");
+            Salary.AddPlaceHolderForTextBox("Зарплата");
             this.dataGridView = dataGridView;
         }
 
@@ -21,11 +23,11 @@ namespace testHotel.AddEntryForm
             {
                 main.dataBase.cn.Close();
                 main.dataBase.cn.Open();
-                main.command = new MySqlCommand("INSERT INTO categories(CategName) VALUES ('" + NameBox.Text + "')", main.dataBase.cn);
+                main.command = new MySqlCommand("INSERT INTO positions (PositName, Salary) VALUES ('" + NameText.Text + "'," + Convert.ToInt32(Salary.Text) + ")", main.dataBase.cn);
                 main.command.ExecuteNonQuery();
                 main.dataBase.cn.Close();
                 MessageBox.Show("Данные успешно добавлены. Обновите таблицу");
-                main.dataBase.DbLoad(dataGridView, "categories");
+                main.dataBase.DbLoad(dataGridView, "positions");
             }
             catch (Exception ex)
             {
@@ -34,5 +36,4 @@ namespace testHotel.AddEntryForm
             Close();
         }
     }
-
 }

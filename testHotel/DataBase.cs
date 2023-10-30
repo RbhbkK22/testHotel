@@ -14,10 +14,10 @@ namespace testHotel
         public void Connect(DataGridView dataGridView)
         {
             cn = new MySqlConnection("server=localhost; port=3306; username=root; password=; database=hotel");
-            
+
         }
-        
-        public void DbLoad(DataGridView dataGridView, string tabName )
+
+        public void DbLoad(DataGridView dataGridView, string tabName)
         {
             try
             {
@@ -30,7 +30,7 @@ namespace testHotel
                 dataApter.Fill(dataTable);
                 dataGridView.DataSource = dataTable.DefaultView;
                 cn.Close();
-                
+
             }
             catch (Exception ex)
             {

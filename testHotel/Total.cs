@@ -1,7 +1,7 @@
-﻿using System;
+﻿using MySqlConnector;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using MySqlConnector;
 
 namespace testHotel
 {
@@ -26,7 +26,7 @@ namespace testHotel
             main.dataBase.cn.Close();
             return priceOfDay;
         }
-        
+
         public void CountTotal()
         {
             List<int> ids = FillArrIdRoomClients();
