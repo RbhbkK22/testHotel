@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using MySqlConnector;
 
-
 namespace testHotel
 {
     public class StateRoomManeger
@@ -14,14 +13,13 @@ namespace testHotel
         {
            this.dataGridView = dataGridView;
         }
-        
-        private string GetDate()
+/*
+        private DateTime GetDate()
         {
-            string[] subsDt = DateTime.Now.ToShortDateString().Split('/');
-            string res = subsDt[2] + "-" + subsDt[0] + "-" + subsDt[1];
-            return res;
+            var subsDt = DateTime.Now;
+            return subsDt;
         }
-
+*/
         protected List<int> FillArrIdRoomClients()
         {
             List<int> ids = new List<int>();
@@ -39,12 +37,11 @@ namespace testHotel
             }
             main.dataBase.cn.Close();
             return ids;
-            
         }
 
         public void ChangeStateRoom()
         {
-            string date = GetDate();
+            var date = DateTime.Today;
             List<int> ids = FillArrIdRoomClients();
             foreach (int id in ids)
             {
@@ -54,20 +51,18 @@ namespace testHotel
                 MySqlDataReader reader = main.command.ExecuteReader();
                 while (reader.Read())
                 {
-                    string checkIn = reader.GetDateTime(6).ToString("yyyy-MM-dd");
-                    string checkOut = reader.GetDateTime(7).ToString("yyyy-MM-dd");
-                    if(date == checkIn)
+                    var checkIn = DateTime.Parse(reader.GetDateTime(6).ToString("MM-dd-yyyy"));
+                    var checkOut = DateTime.Parse(reader.GetDateTime(7).ToString("MM-dd-yyyy"));
+                    if (date >= checkIn & date <= checkOut)
                     {
                         main.command = new MySqlCommand($"UPDATE rooms SET state = 'занято' WHERE id = {id}", main.dataBase.cn);
                         continue;
                     }
-
-                    if(date == checkOut)
+                    if(date >= checkOut)
                     {
                         main.command = new MySqlCommand($"UPDATE rooms SET state = 'свободно' WHERE id = {id}", main.dataBase.cn);
                         continue;
                     }
-                    
                 }
                 main.dataBase.cn.Close();
                 main.dataBase.cn.Open();

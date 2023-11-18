@@ -11,7 +11,7 @@ namespace testHotel
         MySqlCommand command;
         MySqlDataAdapter dataApter;
         DataTable dataTable;
-        public void Connect(DataGridView dataGridView)
+        public void Connect()
         {
             cn = new MySqlConnection("server=localhost; port=3306; username=root; password=; database=hotel");
 

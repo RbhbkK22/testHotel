@@ -106,6 +106,18 @@
     <Compile Include="autorization.Designer.cs">
       <DependentUpon>autorization.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChangeForm\ChangeCategoriesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeForm\ChangeCategoriesForm.Designer.cs">
+      <DependentUpon>ChangeCategoriesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeForm\ChangePositionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeForm\ChangePositionForm.Designer.cs">
+      <DependentUpon>ChangePositionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChangeForm\ChangeRoomForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +164,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="autorization.resx">
       <DependentUpon>autorization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangeForm\ChangeCategoriesForm.resx">
+      <DependentUpon>ChangeCategoriesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangeForm\ChangePositionForm.resx">
+      <DependentUpon>ChangePositionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChangeForm\ChangeRoomForm.resx">
       <DependentUpon>ChangeRoomForm.cs</DependentUpon>

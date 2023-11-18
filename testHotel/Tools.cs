@@ -1,6 +1,7 @@
 ﻿using MySqlConnector;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Windows.Forms;
 
 
@@ -8,15 +9,20 @@ namespace testHotel
 {
     public class Tools
     {
-        Main main = new Main();
+        public DataBase dataBase = new DataBase();
+        public MySqlCommand command;
+        public MySqlDataAdapter dataApter;
+        public DataTable dataTable;
+
 
         DataGridView dataGridView;
 
-        public Tools() { }
+        public Tools() { dataBase.Connect(); }
 
         public Tools(DataGridView d)
         {
             dataGridView = d;
+            dataBase.Connect();
         }
 
         private string GetComboboxName(ComboBox comboBox)
@@ -44,10 +50,10 @@ namespace testHotel
 
         public void FillingComboBox(ComboBox comboBox, string tabName, int colum)
         {
-            main.dataBase.cn.Close();
-            main.dataBase.cn.Open();
-            main.command = new MySqlConnector.MySqlCommand("SELECT * FROM " + tabName + "", main.dataBase.cn);
-            MySqlDataReader reader = main.command.ExecuteReader();
+            dataBase.cn.Close();
+            dataBase.cn.Open();
+            command = new MySqlConnector.MySqlCommand("SELECT * FROM " + tabName + "", dataBase.cn);
+            MySqlDataReader reader = command.ExecuteReader();
             if (reader.HasRows)
             {
                 while (reader.Read())
@@ -56,7 +62,7 @@ namespace testHotel
                     comboBox.Items.Add(s);
                 }
             }
-            main.dataBase.cn.Close();
+            dataBase.cn.Close();
         }
 
         public void DeleteLast(ComboBox comboBox)
@@ -65,12 +71,12 @@ namespace testHotel
 
             try
             {
-                main.dataBase.cn.Close();
-                main.dataBase.cn.Open();
-                main.command = new MySqlCommand(($"DELETE FROM {TableName} ORDER BY id DESC limit 1"), main.dataBase.cn);
-                main.command.ExecuteNonQuery();
-                main.dataBase.cn.Close();
-                main.dataBase.DbLoad(dataGridView, TableName);
+                dataBase.cn.Close();
+                dataBase.cn.Open();
+                command = new MySqlCommand(($"DELETE FROM {TableName} ORDER BY id DESC limit 1"), dataBase.cn);
+                command.ExecuteNonQuery();
+                dataBase.cn.Close();
+                dataBase.DbLoad(dataGridView, TableName);
             }
             catch (Exception ex)
             {
@@ -84,12 +90,12 @@ namespace testHotel
 
             try
             {
-                main.dataBase.cn.Close();
-                main.dataBase.cn.Open();
-                main.command = new MySqlCommand(($"DELETE FROM {TableName} WHERE id = '" + id + "'"), main.dataBase.cn);
-                main.command.ExecuteNonQuery();
-                main.dataBase.cn.Close();
-                main.dataBase.DbLoad(dataGridView, TableName);
+                dataBase.cn.Close();
+                dataBase.cn.Open();
+                command = new MySqlCommand(($"DELETE FROM {TableName} WHERE id = '" + id + "'"), dataBase.cn);
+                command.ExecuteNonQuery();
+                dataBase.cn.Close();
+                dataBase.DbLoad(dataGridView, TableName);
             }
             catch (Exception ex)
             {
@@ -106,11 +112,11 @@ namespace testHotel
 
         public void CountRoomOfCategories()
         {
-            main.dataBase.cn.Close();
-            main.dataBase.cn.Open();
-            main.command = new MySqlCommand($"SELECT CategName FROM categories", main.dataBase.cn);
+            dataBase.cn.Close();
+            dataBase.cn.Open();
+            command = new MySqlCommand($"SELECT CategName FROM categories", dataBase.cn);
             List<string> list = new List<string>();
-            MySqlDataReader reader = main.command.ExecuteReader();
+            MySqlDataReader reader = command.ExecuteReader();
             if (reader.HasRows)
             {
                 while (reader.Read())
@@ -122,10 +128,10 @@ namespace testHotel
             foreach (var i in list)
             {
                 int n = 0;
-                main.dataBase.cn.Close();
-                main.dataBase.cn.Open();
-                main.command = new MySqlCommand($"SELECT * FROM rooms WHERE Category = '{i}'", main.dataBase.cn);
-                reader = main.command.ExecuteReader();
+                dataBase.cn.Close();
+                dataBase.cn.Open();
+                command = new MySqlCommand($"SELECT * FROM rooms WHERE Category = '{i}'", dataBase.cn);
+                reader = command.ExecuteReader();
                 if (reader.HasRows)
                 {
                     while (reader.Read())
@@ -133,15 +139,49 @@ namespace testHotel
                         n += 1;
                     }
                 }
-                main.dataBase.cn.Close();
-                main.dataBase.cn.Open();
-                main.command = new MySqlCommand($"UPDATE categories SET NumOfRoom = {n} WHERE CategName = '{i}'", main.dataBase.cn);
-                main.command.ExecuteNonQuery();
-                main.dataBase.cn.Close();
-
-                main.dataBase.DbLoad(dataGridView, "categories");
+                dataBase.cn.Close();
+                dataBase.cn.Open();
+                command = new MySqlCommand($"UPDATE categories SET NumOfRoom = {n} WHERE CategName = '{i}'", dataBase.cn);
+                command.ExecuteNonQuery();
+                dataBase.cn.Close();
             }
         }
 
+        public void CountPositions()
+        {
+            dataBase.cn.Close();
+            dataBase.cn.Open();
+            command = new MySqlCommand($"SELECT PositName FROM positions", dataBase.cn);
+            List<string> list = new List<string>();
+            MySqlDataReader reader = command.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    string s = reader.GetString(0);
+                    list.Add(s);
+                }
+            }
+            foreach (var i in list)
+            {
+                int n = 0;
+                dataBase.cn.Close();
+                dataBase.cn.Open();
+                command = new MySqlCommand($"SELECT * FROM employees WHERE Position = '{i}'", dataBase.cn);
+                reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        n += 1;
+                    }
+                }
+                dataBase.cn.Close();
+                dataBase.cn.Open();
+                command = new MySqlCommand($"UPDATE positions SET NumOfEmploy = {n} WHERE PositName = '{i}'", dataBase.cn);
+                command.ExecuteNonQuery();
+                dataBase.cn.Close();
+            }
+        }
     }
 }

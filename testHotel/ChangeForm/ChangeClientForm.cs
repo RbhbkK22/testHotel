@@ -12,11 +12,6 @@ namespace testHotel.ChangeForm
         Tools tools = new Tools();
         private int id;
 
-        public ChangeClientForm()
-        {
-            InitializeComponent();
-        }
-
         public ChangeClientForm(int _id, DataGridView d)
         {
             id = _id;

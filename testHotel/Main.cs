@@ -13,6 +13,7 @@ namespace testHotel
         public MySqlCommand command;
         public MySqlDataAdapter dataApter;
         public DataTable dataTable;
+        Tools tool;
 
         public int index;
         public string tmp = "";
@@ -20,9 +21,10 @@ namespace testHotel
         public Main()
         {
             InitializeComponent();
-            dataBase.Connect(dataGridView1);
+            dataBase.Connect();
             comboBox1.SelectedIndex = 0;
             IdTextBox.Visible = false;
+            tool = new Tools(dataGridView1);
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -37,13 +39,16 @@ namespace testHotel
                     stateRoomManeger.ChangeStateRoom();
                     break;
                 case 2:
-                    Tools tool = new Tools(dataGridView1);
+                    tool = new Tools(dataGridView1);
                     tool.CountRoomOfCategories();
+                    dataBase.DbLoad(dataGridView1, "categories");
                     break;
                 case 3:
                     dataBase.DbLoad(dataGridView1, "employees");
                     break;
                 case 4:
+                    tool = new Tools(dataGridView1);
+                    tool.CountPositions();
                     dataBase.DbLoad(dataGridView1, "positions");
                     break;
             }
@@ -84,8 +89,7 @@ namespace testHotel
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            Tools tools = new Tools(dataGridView1);
-            tools.BtnDelete(comboBox1, IdTextBox.Text);
+            tool.BtnDelete(comboBox1, IdTextBox.Text);
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -112,10 +116,12 @@ namespace testHotel
                     changeEmploy.Show();
                     break;
                 case "Должности":
-                    dataBase.DbLoad(dataGridView1, "positions");
+                    ChangePositionForm changePositionForm = new ChangePositionForm(Convert.ToInt32(IdTextBox.Text), dataGridView1);
+                    changePositionForm.Show();
                     break;
                 case "Категории номеров":
-                    dataBase.DbLoad(dataGridView1, "categories");
+                    ChangeCategoriesForm changeCategoriesForm = new ChangeCategoriesForm(Convert.ToInt32(IdTextBox.Text), dataGridView1);
+                    changeCategoriesForm.Show();
                     break;
             }
         }
