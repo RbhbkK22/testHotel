@@ -54,7 +54,7 @@
             this.PhoneNumBox.Margin = new System.Windows.Forms.Padding(4);
             this.PhoneNumBox.Name = "PhoneNumBox";
             this.PhoneNumBox.Size = new System.Drawing.Size(260, 30);
-            this.PhoneNumBox.TabIndex = 10;
+            this.PhoneNumBox.TabIndex = 3;
             // 
             // SurNameBox
             // 
@@ -63,7 +63,7 @@
             this.SurNameBox.Margin = new System.Windows.Forms.Padding(4);
             this.SurNameBox.Name = "SurNameBox";
             this.SurNameBox.Size = new System.Drawing.Size(260, 30);
-            this.SurNameBox.TabIndex = 9;
+            this.SurNameBox.TabIndex = 2;
             // 
             // NameBox
             // 
@@ -72,7 +72,7 @@
             this.NameBox.Margin = new System.Windows.Forms.Padding(4);
             this.NameBox.Name = "NameBox";
             this.NameBox.Size = new System.Drawing.Size(260, 30);
-            this.NameBox.TabIndex = 8;
+            this.NameBox.TabIndex = 1;
             // 
             // btnAdd
             // 
@@ -81,7 +81,7 @@
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(200, 50);
-            this.btnAdd.TabIndex = 12;
+            this.btnAdd.TabIndex = 0;
             this.btnAdd.Text = "Добавить запись";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -96,7 +96,7 @@
             this.PositionComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.PositionComboBox.Name = "PositionComboBox";
             this.PositionComboBox.Size = new System.Drawing.Size(260, 31);
-            this.PositionComboBox.TabIndex = 13;
+            this.PositionComboBox.TabIndex = 4;
             // 
             // AddEmployeesForm
             // 

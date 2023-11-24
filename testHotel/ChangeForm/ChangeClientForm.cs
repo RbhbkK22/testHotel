@@ -28,8 +28,9 @@ namespace testHotel.ChangeForm
             NameText.Text = dataGridView.CurrentRow.Cells[3].Value.ToString();
             SurNameText.Text = dataGridView.CurrentRow.Cells[4].Value.ToString();
             PhoneText.Text = dataGridView.CurrentRow.Cells[5].Value.ToString();
-            CheckInText.Text = dataGridView.CurrentRow.Cells[6].Value.ToString();
-            CheckOutText.Text = dataGridView.CurrentRow.Cells[7].Value.ToString();
+            CheckInText.Text = Convert.ToDateTime(dataGridView.CurrentRow.Cells[6].Value).ToString("yyyy-MM-dd");
+            CheckOutText.Text = Convert.ToDateTime(dataGridView.CurrentRow.Cells[7].Value).ToString("yyyy-MM-dd");
+            
         }
 
         private void btnChange_Click(object sender, EventArgs e)

@@ -33,6 +33,7 @@
             this.SurNameBox = new System.Windows.Forms.TextBox();
             this.NameBox = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // PositionComboBox
@@ -44,7 +45,7 @@
             this.PositionComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.PositionComboBox.Name = "PositionComboBox";
             this.PositionComboBox.Size = new System.Drawing.Size(260, 31);
-            this.PositionComboBox.TabIndex = 17;
+            this.PositionComboBox.TabIndex = 4;
             // 
             // PhoneNumBox
             // 
@@ -53,7 +54,7 @@
             this.PhoneNumBox.Margin = new System.Windows.Forms.Padding(4);
             this.PhoneNumBox.Name = "PhoneNumBox";
             this.PhoneNumBox.Size = new System.Drawing.Size(260, 30);
-            this.PhoneNumBox.TabIndex = 16;
+            this.PhoneNumBox.TabIndex = 3;
             // 
             // SurNameBox
             // 
@@ -62,7 +63,7 @@
             this.SurNameBox.Margin = new System.Windows.Forms.Padding(4);
             this.SurNameBox.Name = "SurNameBox";
             this.SurNameBox.Size = new System.Drawing.Size(260, 30);
-            this.SurNameBox.TabIndex = 15;
+            this.SurNameBox.TabIndex = 2;
             // 
             // NameBox
             // 
@@ -71,7 +72,7 @@
             this.NameBox.Margin = new System.Windows.Forms.Padding(4);
             this.NameBox.Name = "NameBox";
             this.NameBox.Size = new System.Drawing.Size(260, 30);
-            this.NameBox.TabIndex = 14;
+            this.NameBox.TabIndex = 1;
             // 
             // btnAdd
             // 
@@ -80,16 +81,28 @@
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(200, 50);
-            this.btnAdd.TabIndex = 18;
+            this.btnAdd.TabIndex = 0;
             this.btnAdd.Text = "Изменить запись";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Sans Serif Collection", 12F);
+            this.label1.Location = new System.Drawing.Point(20, 25);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(336, 49);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Изменение Работника";
             // 
             // ChangeEmployForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(382, 503);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.PositionComboBox);
             this.Controls.Add(this.PhoneNumBox);
@@ -111,5 +124,6 @@
         private System.Windows.Forms.TextBox SurNameBox;
         private System.Windows.Forms.TextBox NameBox;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -52,7 +52,7 @@
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(200, 50);
-            this.btnAdd.TabIndex = 17;
+            this.btnAdd.TabIndex = 0;
             this.btnAdd.Text = "Добавить запись";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -64,7 +64,7 @@
             this.Salary.Margin = new System.Windows.Forms.Padding(4);
             this.Salary.Name = "Salary";
             this.Salary.Size = new System.Drawing.Size(265, 30);
-            this.Salary.TabIndex = 16;
+            this.Salary.TabIndex = 2;
             // 
             // NameText
             // 
@@ -73,7 +73,7 @@
             this.NameText.Margin = new System.Windows.Forms.Padding(4);
             this.NameText.Name = "NameText";
             this.NameText.Size = new System.Drawing.Size(265, 30);
-            this.NameText.TabIndex = 15;
+            this.NameText.TabIndex = 1;
             // 
             // ChangePositionForm
             // 

@@ -45,7 +45,7 @@
             this.NameText.Margin = new System.Windows.Forms.Padding(4);
             this.NameText.Name = "NameText";
             this.NameText.Size = new System.Drawing.Size(265, 30);
-            this.NameText.TabIndex = 1;
+            this.NameText.TabIndex = 2;
             // 
             // SurNameText
             // 
@@ -54,7 +54,7 @@
             this.SurNameText.Margin = new System.Windows.Forms.Padding(4);
             this.SurNameText.Name = "SurNameText";
             this.SurNameText.Size = new System.Drawing.Size(265, 30);
-            this.SurNameText.TabIndex = 2;
+            this.SurNameText.TabIndex = 3;
             // 
             // btnAdd
             // 
@@ -63,7 +63,7 @@
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(200, 50);
-            this.btnAdd.TabIndex = 3;
+            this.btnAdd.TabIndex = 0;
             this.btnAdd.Text = "Добавить запись";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -86,7 +86,7 @@
             this.PhoneText.Margin = new System.Windows.Forms.Padding(4);
             this.PhoneText.Name = "PhoneText";
             this.PhoneText.Size = new System.Drawing.Size(265, 30);
-            this.PhoneText.TabIndex = 5;
+            this.PhoneText.TabIndex = 3;
             // 
             // CheckInText
             // 
@@ -95,7 +95,7 @@
             this.CheckInText.Margin = new System.Windows.Forms.Padding(4);
             this.CheckInText.Name = "CheckInText";
             this.CheckInText.Size = new System.Drawing.Size(265, 30);
-            this.CheckInText.TabIndex = 6;
+            this.CheckInText.TabIndex = 4;
             // 
             // CheckOutText
             // 
@@ -104,7 +104,7 @@
             this.CheckOutText.Margin = new System.Windows.Forms.Padding(4);
             this.CheckOutText.Name = "CheckOutText";
             this.CheckOutText.Size = new System.Drawing.Size(265, 30);
-            this.CheckOutText.TabIndex = 7;
+            this.CheckOutText.TabIndex = 5;
             // 
             // RoomNumComboBox
             // 
@@ -114,7 +114,7 @@
             this.RoomNumComboBox.Location = new System.Drawing.Point(70, 125);
             this.RoomNumComboBox.Name = "RoomNumComboBox";
             this.RoomNumComboBox.Size = new System.Drawing.Size(265, 31);
-            this.RoomNumComboBox.TabIndex = 8;
+            this.RoomNumComboBox.TabIndex = 1;
             // 
             // AddClientForm
             // 

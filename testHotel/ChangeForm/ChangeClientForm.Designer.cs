@@ -35,6 +35,7 @@
             this.SurNameText = new System.Windows.Forms.TextBox();
             this.NameText = new System.Windows.Forms.TextBox();
             this.RoomNumComboBox = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // CheckOutText
@@ -44,7 +45,7 @@
             this.CheckOutText.Margin = new System.Windows.Forms.Padding(4);
             this.CheckOutText.Name = "CheckOutText";
             this.CheckOutText.Size = new System.Drawing.Size(265, 30);
-            this.CheckOutText.TabIndex = 14;
+            this.CheckOutText.TabIndex = 6;
             // 
             // CheckInText
             // 
@@ -53,7 +54,7 @@
             this.CheckInText.Margin = new System.Windows.Forms.Padding(4);
             this.CheckInText.Name = "CheckInText";
             this.CheckInText.Size = new System.Drawing.Size(265, 30);
-            this.CheckInText.TabIndex = 13;
+            this.CheckInText.TabIndex = 5;
             // 
             // PhoneText
             // 
@@ -62,7 +63,7 @@
             this.PhoneText.Margin = new System.Windows.Forms.Padding(4);
             this.PhoneText.Name = "PhoneText";
             this.PhoneText.Size = new System.Drawing.Size(265, 30);
-            this.PhoneText.TabIndex = 12;
+            this.PhoneText.TabIndex = 4;
             // 
             // btnChange
             // 
@@ -71,7 +72,7 @@
             this.btnChange.Margin = new System.Windows.Forms.Padding(4);
             this.btnChange.Name = "btnChange";
             this.btnChange.Size = new System.Drawing.Size(200, 50);
-            this.btnChange.TabIndex = 11;
+            this.btnChange.TabIndex = 0;
             this.btnChange.Text = "Изменить запись";
             this.btnChange.UseVisualStyleBackColor = true;
             this.btnChange.Click += new System.EventHandler(this.btnChange_Click);
@@ -83,7 +84,7 @@
             this.SurNameText.Margin = new System.Windows.Forms.Padding(4);
             this.SurNameText.Name = "SurNameText";
             this.SurNameText.Size = new System.Drawing.Size(265, 30);
-            this.SurNameText.TabIndex = 10;
+            this.SurNameText.TabIndex = 3;
             // 
             // NameText
             // 
@@ -92,7 +93,7 @@
             this.NameText.Margin = new System.Windows.Forms.Padding(4);
             this.NameText.Name = "NameText";
             this.NameText.Size = new System.Drawing.Size(265, 30);
-            this.NameText.TabIndex = 9;
+            this.NameText.TabIndex = 2;
             // 
             // RoomNumComboBox
             // 
@@ -102,13 +103,25 @@
             this.RoomNumComboBox.Location = new System.Drawing.Point(70, 125);
             this.RoomNumComboBox.Name = "RoomNumComboBox";
             this.RoomNumComboBox.Size = new System.Drawing.Size(265, 31);
-            this.RoomNumComboBox.TabIndex = 15;
+            this.RoomNumComboBox.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Sans Serif Collection", 12F);
+            this.label1.Location = new System.Drawing.Point(49, 25);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(302, 49);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "Изменение Клиента";
             // 
             // ChangeClientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(382, 503);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.RoomNumComboBox);
             this.Controls.Add(this.CheckOutText);
             this.Controls.Add(this.CheckInText);
@@ -135,5 +148,6 @@
         private System.Windows.Forms.TextBox SurNameText;
         private System.Windows.Forms.TextBox NameText;
         private System.Windows.Forms.ComboBox RoomNumComboBox;
+        private System.Windows.Forms.Label label1;
     }
 }

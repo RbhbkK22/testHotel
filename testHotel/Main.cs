@@ -92,13 +92,6 @@ namespace testHotel
             tool.BtnDelete(comboBox1, IdTextBox.Text);
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-        }
-        private void btnReLoad_Click(object sender, EventArgs e)
-        {
-        }
-
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
         {
             switch (comboBox1.Text)
@@ -126,7 +119,7 @@ namespace testHotel
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void CountBtn_Click(object sender, EventArgs e)
         {
             Total total = new Total(dataGridView1);
             total.CountTotal();
