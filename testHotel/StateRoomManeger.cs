@@ -51,8 +51,8 @@ namespace testHotel
                 MySqlDataReader reader = main.command.ExecuteReader();
                 while (reader.Read())
                 {
-                    var checkIn = DateTime.Parse(reader.GetDateTime(6).ToString("MM-dd-yyyy"));
-                    var checkOut = DateTime.Parse(reader.GetDateTime(7).ToString("MM-dd-yyyy"));
+                    var checkIn = DateTime.Parse(reader.GetDateTime(6).ToString("MM/dd/yyyy"));
+                    var checkOut = DateTime.Parse(reader.GetDateTime(7).ToString("MM/dd/yyyy"));
                     if (date >= checkIn & date <= checkOut)
                     {
                         main.command = new MySqlCommand($"UPDATE rooms SET state = 'занято' WHERE id = {id}", main.dataBase.cn);

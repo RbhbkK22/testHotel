@@ -26,7 +26,7 @@ namespace testHotel.AddEntryForm
                 main.command = new MySqlCommand("INSERT INTO positions (PositName, Salary) VALUES ('" + NameText.Text + "'," + Convert.ToInt32(Salary.Text) + ")", main.dataBase.cn);
                 main.command.ExecuteNonQuery();
                 main.dataBase.cn.Close();
-                MessageBox.Show("Данные успешно добавлены. Обновите таблицу");
+                MessageBox.Show("Данные успешно добавлены.");
                 main.dataBase.DbLoad(dataGridView, "positions");
             }
             catch (Exception ex)

@@ -25,7 +25,7 @@ namespace testHotel
             dataBase.Connect();
         }
 
-        private string GetComboboxName(ComboBox comboBox)
+        public string GetComboboxName(ComboBox comboBox)
         {
             switch (comboBox.Text)
             {
@@ -46,6 +46,29 @@ namespace testHotel
 
             }
             return null;
+        }
+
+        public void LoadFiels(ComboBox comboBox, ComboBox columComboBox)
+        {
+            string tab = GetComboboxName (comboBox);
+            try
+            {
+                dataBase.cn.Close();
+                dataBase.cn.Open();
+                command = new MySqlCommand("SHOW COLUMNS FROM " + tab + "", dataBase.cn);
+                MySqlDataReader reader = command.ExecuteReader();
+                columComboBox.Items.Clear();
+                while (reader.Read())
+                {
+                    string columnName = reader["Field"].ToString();
+                    columComboBox.Items.Add(columnName);
+                }
+                dataBase.cn.Close();
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         public void FillingComboBox(ComboBox comboBox, string tabName, int colum)

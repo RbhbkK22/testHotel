@@ -26,7 +26,7 @@ namespace testHotel.AddEntryForm
                     "(SELECT id FROM categories WHERE CategName = '" + CategComboBox.Text + "')," + PriceDayBox.Text + ")", main.dataBase.cn);
                 main.command.ExecuteNonQuery();
                 main.dataBase.cn.Close();
-                MessageBox.Show("Данные успешно добавлены. Обновите таблицу");
+                MessageBox.Show("Данные успешно добавлены.");
                 main.dataBase.DbLoad(dataGridView, "rooms");
             }
             catch (Exception ex)

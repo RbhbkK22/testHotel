@@ -29,7 +29,7 @@ namespace testHotel.AddEntryForm
                     "'" + PhoneText.Text + "','" + CheckInText.Text + "','" + CheckOutText.Text + "', 'NULL')", main.dataBase.cn);
                 main.command.ExecuteNonQuery();
                 main.dataBase.cn.Close();
-                MessageBox.Show("Данные успешно добавлены. Обновите таблицу");
+                MessageBox.Show("Данные успешно добавлены.");
                 main.dataBase.DbLoad(dataGridView, "clients");
             }
             catch (Exception ex)

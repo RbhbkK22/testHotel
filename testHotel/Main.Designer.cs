@@ -35,6 +35,9 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.IdTextBox = new System.Windows.Forms.TextBox();
             this.CountBtn = new System.Windows.Forms.Button();
+            this.serchTextBox = new System.Windows.Forms.TextBox();
+            this.serchBtn = new System.Windows.Forms.Button();
+            this.columComboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,7 +62,9 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.dataGridView1.Location = new System.Drawing.Point(16, 48);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
@@ -72,26 +77,30 @@
             // 
             // btnAddEntry
             // 
+            this.btnAddEntry.BackColor = System.Drawing.Color.Ivory;
             this.btnAddEntry.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.btnAddEntry.ForeColor = System.Drawing.Color.ForestGreen;
             this.btnAddEntry.Location = new System.Drawing.Point(16, 565);
             this.btnAddEntry.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddEntry.Name = "btnAddEntry";
             this.btnAddEntry.Size = new System.Drawing.Size(160, 43);
             this.btnAddEntry.TabIndex = 4;
             this.btnAddEntry.Text = "Добавить запись";
-            this.btnAddEntry.UseVisualStyleBackColor = true;
+            this.btnAddEntry.UseVisualStyleBackColor = false;
             this.btnAddEntry.Click += new System.EventHandler(this.btnAddEntry_Click);
             // 
             // btnDelete
             // 
+            this.btnDelete.BackColor = System.Drawing.Color.Ivory;
             this.btnDelete.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.btnDelete.ForeColor = System.Drawing.Color.Red;
             this.btnDelete.Location = new System.Drawing.Point(352, 565);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(160, 43);
             this.btnDelete.TabIndex = 6;
             this.btnDelete.Text = "Удалить";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // IdTextBox
@@ -105,20 +114,52 @@
             // 
             // CountBtn
             // 
+            this.CountBtn.BackColor = System.Drawing.Color.Ivory;
             this.CountBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.CountBtn.ForeColor = System.Drawing.Color.ForestGreen;
             this.CountBtn.Location = new System.Drawing.Point(185, 565);
             this.CountBtn.Name = "CountBtn";
             this.CountBtn.Size = new System.Drawing.Size(160, 43);
             this.CountBtn.TabIndex = 8;
             this.CountBtn.Text = "Посчитать";
-            this.CountBtn.UseVisualStyleBackColor = true;
+            this.CountBtn.UseVisualStyleBackColor = false;
             this.CountBtn.Click += new System.EventHandler(this.CountBtn_Click);
+            // 
+            // serchTextBox
+            // 
+            this.serchTextBox.Location = new System.Drawing.Point(1021, 15);
+            this.serchTextBox.Name = "serchTextBox";
+            this.serchTextBox.Size = new System.Drawing.Size(117, 22);
+            this.serchTextBox.TabIndex = 9;
+            // 
+            // serchBtn
+            // 
+            this.serchBtn.Location = new System.Drawing.Point(1144, 15);
+            this.serchBtn.Name = "serchBtn";
+            this.serchBtn.Size = new System.Drawing.Size(75, 23);
+            this.serchBtn.TabIndex = 10;
+            this.serchBtn.Text = "поиск";
+            this.serchBtn.UseVisualStyleBackColor = true;
+            this.serchBtn.Click += new System.EventHandler(this.serchBtn_Click);
+            // 
+            // columComboBox
+            // 
+            this.columComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.columComboBox.FormattingEnabled = true;
+            this.columComboBox.Location = new System.Drawing.Point(877, 15);
+            this.columComboBox.Name = "columComboBox";
+            this.columComboBox.Size = new System.Drawing.Size(138, 24);
+            this.columComboBox.TabIndex = 11;
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1344, 663);
+            this.Controls.Add(this.columComboBox);
+            this.Controls.Add(this.serchBtn);
+            this.Controls.Add(this.serchTextBox);
             this.Controls.Add(this.CountBtn);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.IdTextBox);
@@ -144,6 +185,9 @@
         public System.Windows.Forms.ComboBox comboBox1;
         public System.Windows.Forms.TextBox IdTextBox;
         private System.Windows.Forms.Button CountBtn;
+        private System.Windows.Forms.TextBox serchTextBox;
+        private System.Windows.Forms.Button serchBtn;
+        private System.Windows.Forms.ComboBox columComboBox;
     }
 }
 

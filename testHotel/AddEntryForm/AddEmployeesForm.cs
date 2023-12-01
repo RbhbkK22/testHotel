@@ -28,7 +28,7 @@ namespace testHotel.AddEntryForm
                     "'" + PositionComboBox.Text + "', (SELECT id FROM positions WHERE PositName = '" + PositionComboBox.Text + "'))", main.dataBase.cn);
                 main.command.ExecuteNonQuery();
                 main.dataBase.cn.Close();
-                MessageBox.Show("Данные успешно добавлены. Обновите таблицу");
+                MessageBox.Show("Данные успешно добавлены.");
                 main.dataBase.DbLoad(dataGridView, "employees");
             }
             catch (Exception ex)

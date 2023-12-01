@@ -50,7 +50,7 @@ namespace testHotel.ChangeForm
                 _dataBase.cn.Close();
                 ChangePositionOfStaff();
                 _dataBase.DbLoad(dataGridView, "positions");
-                MessageBox.Show("Data successfully updated");
+                MessageBox.Show("Данные изменены.");
                 Close();
 
             }

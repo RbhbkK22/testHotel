@@ -44,7 +44,7 @@ namespace testHotel.ChangeForm
                 _command.ExecuteNonQuery();
                 _dataBase.cn.Close();
                 _dataBase.DbLoad(dataGridView, "categories");
-                MessageBox.Show("Data successfully updated");
+                MessageBox.Show("Данные изменены.");
                 Close();
 
             }

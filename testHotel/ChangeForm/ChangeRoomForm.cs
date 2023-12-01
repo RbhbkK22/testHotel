@@ -40,7 +40,7 @@ namespace testHotel.AddEntryForm
                     "PriceOfDay = " + PriceDayBox.Text + " WHERE id = " + id + "", main.dataBase.cn);
                 main.command.ExecuteNonQuery();
                 main.dataBase.cn.Close();
-                MessageBox.Show("Данные успешно добавлены. Обновите таблицу");
+                MessageBox.Show("Данные изменены.");
                 main.dataBase.DbLoad(dataGridView, "rooms");
             }
             catch (Exception ex)

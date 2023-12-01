@@ -1,6 +1,7 @@
 ﻿using MySqlConnector;
 using System;
 using System.Data;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using testHotel.AddEntryForm;
 using testHotel.ChangeForm;
@@ -29,27 +30,33 @@ namespace testHotel
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            tool = new Tools(dataGridView1);
             switch (comboBox1.SelectedIndex)
             {
                 case 0:
                     dataBase.DbLoad(dataGridView1, "clients");
+                    tool.LoadFiels(comboBox1, columComboBox);
                     break;
                 case 1:
                     StateRoomManeger stateRoomManeger = new StateRoomManeger(dataGridView1);
                     stateRoomManeger.ChangeStateRoom();
+                    tool.LoadFiels(comboBox1, columComboBox);
                     break;
                 case 2:
                     tool = new Tools(dataGridView1);
                     tool.CountRoomOfCategories();
                     dataBase.DbLoad(dataGridView1, "categories");
+                    tool.LoadFiels(comboBox1, columComboBox);
                     break;
                 case 3:
                     dataBase.DbLoad(dataGridView1, "employees");
+                    tool.LoadFiels(comboBox1, columComboBox);
                     break;
                 case 4:
                     tool = new Tools(dataGridView1);
                     tool.CountPositions();
                     dataBase.DbLoad(dataGridView1, "positions");
+                    tool.LoadFiels(comboBox1, columComboBox);
                     break;
             }
         }
@@ -123,6 +130,44 @@ namespace testHotel
         {
             Total total = new Total(dataGridView1);
             total.CountTotal();
+        }
+
+        private void serchBtn_Click(object sender, EventArgs e)
+        {
+            string tab = tool.GetComboboxName(comboBox1);
+            string selectedColumn = columComboBox.SelectedItem.ToString();
+            if (serchTextBox.Text != "")
+            {
+                try
+                {
+                    string serchTerm = serchTextBox.Text;
+                    dataBase.cn.Close();
+                    dataBase.cn.Open();
+                    command = new MySqlCommand($"SELECT * FROM {tab} WHERE {selectedColumn} LIKE @serchTerm", dataBase.cn);
+                    command.Parameters.AddWithValue("@serchTerm", "%" + serchTerm + "%");
+                    dataApter = new MySqlDataAdapter(command);
+                    dataTable = new DataTable();
+                    dataGridView1.DataSource = dataTable;
+                    dataTable.Clear();
+                    dataApter.Fill(dataTable);
+                    dataBase.cn.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else
+            {
+                dataBase.cn.Close();
+                dataBase.cn.Open();
+                command = new MySqlCommand($"SELECT * FROM {tab} ORDER BY {selectedColumn} ASC", dataBase.cn);
+                dataApter = new MySqlDataAdapter(command);
+                dataTable = new DataTable();
+                dataGridView1.DataSource = dataTable;
+                dataTable.Clear();
+                dataApter.Fill(dataTable);
+            }
         }
     }
 }

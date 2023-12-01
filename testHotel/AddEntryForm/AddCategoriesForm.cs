@@ -24,7 +24,7 @@ namespace testHotel.AddEntryForm
                 main.command = new MySqlCommand("INSERT INTO categories(CategName) VALUES ('" + NameBox.Text + "')", main.dataBase.cn);
                 main.command.ExecuteNonQuery();
                 main.dataBase.cn.Close();
-                MessageBox.Show("Данные успешно добавлены. Обновите таблицу");
+                MessageBox.Show("Данные успешно добавлены.");
                 main.dataBase.DbLoad(dataGridView, "categories");
             }
             catch (Exception ex)
